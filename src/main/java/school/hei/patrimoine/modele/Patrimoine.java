@@ -1,7 +1,5 @@
 package school.hei.patrimoine.modele;
-
 import school.hei.patrimoine.modele.possession.Possession;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Set;
@@ -16,12 +14,18 @@ public record Patrimoine(
     return possessions.stream().mapToInt(Possession::getValeurComptable).sum();
   }
 
-  public int getValeurComptableEnDevise(String codeDevise, double tauxChange, double tauxAppreciationAnnuel) {
-    int total = 0;
+  public int getValeurComptableEnDevise(String devise, double tauxChange, double appreciationAnnuelle) {
+    int valeurComptableTotale = 0;
     for (Possession possession : possessions) {
-      total += possession.getValeurComptableEnDevise(codeDevise, tauxChange, tauxAppreciationAnnuel);
+      int valeur = possession.getValeurComptable();
+      valeurComptableTotale += convertirEnDevise(valeur, devise, tauxChange, appreciationAnnuelle);
     }
-    return total;
+    return valeurComptableTotale;
+  }
+
+  private int convertirEnDevise(int valeur, String devise, double tauxChange, double appreciationAnnuelle) {
+    double tauxJournalier = tauxChange * Math.pow(1 + appreciationAnnuelle / 365, LocalDate.now().until(t).getDays());
+    return (int) Math.round(valeur / tauxJournalier);
   }
 
   public Patrimoine projectionFuture(LocalDate tFutur) {
