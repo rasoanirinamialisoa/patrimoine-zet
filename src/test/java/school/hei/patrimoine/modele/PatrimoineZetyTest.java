@@ -19,8 +19,8 @@ class PatrimoineZetyTest {
         var au3juillet24 = LocalDate.of(2024, JULY, 3);
         var au17septembre24 = LocalDate.of(2024, SEPTEMBER, 17);
 
-        var ordinateur = new Materiel("Ordinateur", au3juillet24, 1_200_000,au3juillet24, -0.0996);
-        var vetements = new Materiel("Vêtements", au3juillet24, 1_500_000,au3juillet24, -0.4988);
+        var ordinateur = new Materiel("Ordinateur", au3juillet24, 1_200_000, au3juillet24, -0.0996);
+        var vetements = new Materiel("Vêtements", au3juillet24, 1_500_000, au3juillet24, -0.4988);
         var espece = new Argent("Espèces", au3juillet24, 800_000);
         var compteBancaire = new Argent("Compte bancaire", au3juillet24, 100_000);
         var fraisTenueCompte = new FluxArgent(
@@ -57,9 +57,9 @@ class PatrimoineZetyTest {
         var fraisScolarite = new FluxArgent(
                 "Frais de scolarité",
                 espece, LocalDate.of(2023, NOVEMBER, 27), LocalDate.of(2024, AUGUST, 27), -200_000, 30);
-        var endettement = new FluxArgent(
-                "Endettement",
-                compteBancaire, au18septembre24, au18septembre24, 10_000_000, 18);
+        var endettement = new Dette(
+                "Endettement", au18septembre24, -10_000_000);
+
         var patrimoineZetyAu17septembre24 = new Patrimoine(
                 "patrimoineZetyAu17septembre24",
                 zety,
@@ -70,6 +70,7 @@ class PatrimoineZetyTest {
         long valeurApresEndettement = patrimoineZetyAu17septembre24.projectionFuture(au18septembre24).getValeurComptable();
 
         long diminutionPatrimoine = valeurAvantEndettement - valeurApresEndettement;
-        assertEquals(-9_997_622, diminutionPatrimoine);
+        assertEquals(10_002_378, diminutionPatrimoine);
     }
+
 }
