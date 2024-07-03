@@ -19,8 +19,8 @@ class PatrimoineZetyTest {
         var au3juillet24 = LocalDate.of(2024, JULY, 3);
         var au17septembre24 = LocalDate.of(2024, SEPTEMBER, 17);
 
-        var ordinateur = new Materiel("Ordinateur", au3juillet24, 1_200_000, au3juillet24, -0.0996);
-        var vetements = new Materiel("Vêtements", au3juillet24, 1_500_000, au3juillet24, -0.4988);
+        var ordinateur = new Materiel("Ordinateur", au3juillet24, 1_200_000, au3juillet24, -0.10);
+        var vetements = new Materiel("Vêtements", au3juillet24, 1_500_000, au3juillet24, -0.50);
         var espece = new Argent("Espèces", au3juillet24, 800_000);
         var compteBancaire = new Argent("Compte bancaire", au3juillet24, 100_000);
         var fraisTenueCompte = new FluxArgent(
@@ -36,7 +36,7 @@ class PatrimoineZetyTest {
                 au3juillet24,
                 Set.of(ordinateur, vetements, espece, compteBancaire, fraisTenueCompte, fraisScolarite));
 
-        assertEquals(3_179_323, patrimoineZetyAu17septembre24.projectionFuture(au17septembre24).getValeurComptable());
+        assertEquals(3_178_848, patrimoineZetyAu17septembre24.projectionFuture(au17septembre24).getValeurComptable());
     }
 
 
