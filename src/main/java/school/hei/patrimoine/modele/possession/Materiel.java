@@ -12,7 +12,7 @@ public final class Materiel extends Possession {
 
   public Materiel(
       String nom, LocalDate t, int valeurComptable, LocalDate dateAcquisition, double tauxDAppreciationAnnuelle) {
-    super(nom, t, valeurComptable,  Currency.getInstance("Euro"));
+    super(nom, t, valeurComptable, Currency.getInstance("Euro"));
     this.dateAcquisition = dateAcquisition;
     this.tauxDAppreciationAnnuelle = tauxDAppreciationAnnuelle;
   }

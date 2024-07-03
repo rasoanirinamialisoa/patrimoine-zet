@@ -39,4 +39,9 @@ public abstract sealed class Possession implements Serializable permits
   }
 
   public abstract Possession projectionFuture(LocalDate tFutur);
+
+  public int valeurComptableFuture(LocalDate au26juin24) {
+    return null;
+  }
+
 }
