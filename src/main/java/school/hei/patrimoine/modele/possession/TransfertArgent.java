@@ -1,6 +1,7 @@
 package school.hei.patrimoine.modele.possession;
 
 import java.time.LocalDate;
+import java.util.Currency;
 import java.util.Set;
 
 public final class TransfertArgent extends Possession {
@@ -11,7 +12,7 @@ public final class TransfertArgent extends Possession {
       Argent depuisArgent, Argent versArgent,
       LocalDate debut, LocalDate fin,
       int fluxMensuel, int dateOperation) {
-    super(nom, debut, 0);
+    super(nom, debut, 0, Currency.getInstance("Euro") );
     this.transfertCommeGroupe = new GroupePossession(
         nom,
         debut,

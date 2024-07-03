@@ -1,6 +1,7 @@
 package school.hei.patrimoine.modele.possession;
 
 import java.time.LocalDate;
+import java.util.Currency;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,7 +20,7 @@ public sealed class Argent extends Possession permits Dette, Creance {
   }
 
   private Argent(String nom, LocalDate dateOuverture, LocalDate t, int valeurComptable, Set<FluxArgent> fluxArgents) {
-    super(nom, t, valeurComptable);
+    super(nom, t, valeurComptable, Currency.getInstance("Euro") );
     this.fluxArgents = fluxArgents;
     this.dateOuverture = dateOuverture;
   }

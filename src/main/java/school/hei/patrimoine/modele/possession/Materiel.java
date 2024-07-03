@@ -1,6 +1,7 @@
 package school.hei.patrimoine.modele.possession;
 
 import java.time.LocalDate;
+import java.util.Currency;
 
 import static java.lang.Math.max;
 import static java.time.temporal.ChronoUnit.DAYS;
@@ -11,7 +12,7 @@ public final class Materiel extends Possession {
 
   public Materiel(
       String nom, LocalDate t, int valeurComptable, LocalDate dateAcquisition, double tauxDAppreciationAnnuelle) {
-    super(nom, t, valeurComptable);
+    super(nom, t, valeurComptable,  Currency.getInstance("Euro"));
     this.dateAcquisition = dateAcquisition;
     this.tauxDAppreciationAnnuelle = tauxDAppreciationAnnuelle;
   }

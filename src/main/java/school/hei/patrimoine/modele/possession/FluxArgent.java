@@ -3,6 +3,7 @@ package school.hei.patrimoine.modele.possession;
 import lombok.Getter;
 
 import java.time.LocalDate;
+import java.util.Currency;
 
 @Getter
 public final class FluxArgent extends Possession {
@@ -14,7 +15,7 @@ public final class FluxArgent extends Possession {
 
   public FluxArgent(
       String nom, Argent argent, LocalDate debut, LocalDate fin, int fluxMensuel, int dateOperation) {
-    super(nom, null, 0);
+    super(nom, null, 0,  Currency.getInstance("Euro"));
     this.argent = argent;
     this.argent.addFinancés(this);
 

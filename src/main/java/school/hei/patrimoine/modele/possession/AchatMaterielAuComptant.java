@@ -1,6 +1,7 @@
 package school.hei.patrimoine.modele.possession;
 
 import java.time.LocalDate;
+import java.util.Currency;
 import java.util.Set;
 
 public final class AchatMaterielAuComptant extends Possession {
@@ -9,7 +10,7 @@ public final class AchatMaterielAuComptant extends Possession {
 
   public AchatMaterielAuComptant(
       String nom, LocalDate dateAchat, int valeurComptableALAchat, double tauxAppreciationAnnuelle, Argent financeur) {
-    super(nom, dateAchat, valeurComptableALAchat);
+    super(nom, dateAchat, valeurComptableALAchat,  Currency.getInstance("Euro"));
     this.achatCommeGroupe = new GroupePossession(
         nom,
         dateAchat,
